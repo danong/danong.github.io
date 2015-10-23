@@ -55,20 +55,17 @@ function setupBoard()
 	{
 		if(board[k] == 15) 
 		{      
-		alert("empty is: " + k);
 		empty = k;}
 	} 
 
 	while(checkSolvability() != 1) // if solvable doesnt return 1, keep shuffling board
 	{ //  it is important to do this loop after setting empty in above for loop
-		alert (" we need to randomize because current isn't solvable");
 		shuffleboard();
 	}
 	
 	var s = "";
 	for(var i = 0; i < 16; ++i)
 		s = s + ", " + board[i];
-	alert(s);
 }
 
 function shuffleboard()
@@ -86,7 +83,6 @@ function shuffleboard()
 	{
 		if(board[k] == 15) 
 		{      
-		alert("empty is: " + k);
 		empty = k;}
 	} 
 }
@@ -118,7 +114,7 @@ function checkSolvability()
 	if(checkeven == 0)
 	{
 		if(((empty > 3) && (empty < 8)) || ((empty > 11) && (empty < 16)))
-		{   alert("is solvable according to the link i guarantee it");
+		{   
 			return 1;}
 		else
 			return 0;
@@ -126,7 +122,7 @@ function checkSolvability()
 	else // if inversions is odd. and blank is on row 0 or 2 is solvable
 	{
 		if((empty < 4) || ((empty > 7) && (empty < 12)))
-		{   alert("is solvable according to the link i gaurantee it");
+		{   
 			return 1;}
 		else
 			return 0;
@@ -347,7 +343,7 @@ function solved()
 	}
 	
 	if(i == 15)
-		alert("Congratulation you win");
+		alert("Congratulation! You win!");
 }
 
 
