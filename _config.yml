@@ -8,14 +8,14 @@ relative_permalinks: true
 
 # Setup
 title:            Daniel Ong
-tagline:          'Where does this show up?'
-description:      'I put my CS related blog posts and project information here.'
+tagline:          'Daniel Ong'
+description:      'I put my CS stuff here.'
 url:              http://danielong.xyz
 baseurl:          /
 
 author:
   name:           'Daniel Ong'
-  url:            http://danielong.xyz
+  url:            https://github.com/danong/
 
 paginate:         5
 
