@@ -23,9 +23,11 @@ Found at your local gas station, ATM, and more, single server queues are every a
 ## Implementation
 Our basic strategy is quite simple. Instead of incrementing through time, we will jump forward to the time of the next event (e.g. arrival or departure) and randomly generate the time of the next event as needed. This strategy works because nothing in our model between arrivals and departures. Unfortunately, there are multiple possible cases that can happen which we'll need consider one at a time. Still, this will be a relatively simple, short, and efficient simulation! 
 
-$$f(x;\lambda) = \lambda e^{-\lambda x}$$
+Recall, the exponential distribution describes the inter-arrival times of a homogenous Poisson process. For simplicity's sake, we'll be using the exponential distribution to generate both arrival and departure times. The probability density function is:
+$$f(x;\lambda) = \lambda e^{-\lambda x}, x >= 0$$
 
-
+We could use inverse transform sampling to generate random numbers from an exponential distribution but we'll just be using the `expovariate(lambda)` function found in Python's inbuilt `random` module.
+ 
 ### Variables
 We're going to need to keep track of a few key variables throughout this simulation:
 
@@ -39,9 +41,11 @@ We're going to need to keep track of a few key variables throughout this simulat
 * `departures`: List of customer arrival times
 * `arrivals`: List of departure times
 * `overtime`: Time past the closing time that the last customer departs
+* `lambd_in`: Lambda for arrivals
+* `lambda_out`: Lambda for departures
 
 ### Initialization
-
+At the start of our simulation (`t = 0`), there is nobody in line and we have yet to serve anybody. We generate the time of our next arrival with `time_arrive = random.expovariate(lambd_in)` and set the time of our next departure to infinity. This makes sense because there is currently nobody in line. We will be waiting forever for the next person to depart when there is nobody in line! 
 {% highlight python %}
 t = 0             
 closing_time = 1000
@@ -54,6 +58,8 @@ departures = []
 arrivals = []
 overtime = 0
 {% endhighlight %}
+
+Now we enter a loop which repeats as long as either the current time is below the closing time or the queue isn't empty.
 
 ### Case 1 - An arrival occurs before the next departure
 
@@ -106,5 +112,5 @@ break
 ## Analysis of queue lengths
 Lorem ipsum
 
-$$E(X) = \lambda^-1$$
+$$E(X) = \lambda^{-1}$$
 [![placeholder](/images/2016-02-18-single-server-queue/ssqueue_scatter.png "Scatter Plot")](/images/2016-02-18-single-server-queue/ssqueue_scatter.png)
