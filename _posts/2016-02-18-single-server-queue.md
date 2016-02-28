@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Single Server Queue Tutorial
+title: Single Server Queue Tutorial (Python)
 ---
 
 The single server queue is the most basic model in queueing theory. This tutorial teaches beginner computer scientists how to simulate a single server queue.
@@ -11,9 +11,15 @@ The single server queue is the most basic model in queueing theory. This tutoria
 * Familiarity with statistics and [probability distributions](https://en.wikipedia.org/wiki/Probability_distribution).
 
 ## A Basic Queue
-Imagine a grocery store with one checkout aisle. Customers randomly join the queue according to some probability distribution. The cashier, who can only serve a single person at a time, takes some randomly distributed amount of time to serve the first person in line. The store allows customers to join the line until some set closing time. After the closing time, nobody can join the queue but the cashier will continue to work until the queue is empty. In this tutorial, we will be using the exponential distribution for both arrival and departure times.
+Take a grocery store with one checkout aisle as an example of a single server queue. Customers randomly join the queue according to some probability distribution. The cashier, who can only serve a single person at a time, takes some randomly distributed amount of time to serve the first person in line. The store allows customers to join the line until some set closing time. After the closing time, nobody can join the queue but the cashier will continue to work until the queue is empty. In this tutorial, we will be using the exponential distribution for both arrival and departure times.
 
-## Variables
+## Applications
+Found at your local gas station, ATM, subway, etc. Single server queues are every around us. Furthermore, you can chain multiple single server queues in parallel or series to create more sophisticated queueing systems which can model many more real world queueing systems such as traffic lights, server loads, etc. 
+
+## Implementation
+Our basic strategy is quite simple. Instead of incrementing through time, we will jump forward to the time of the next event (e.g. arrival or departure) and randomly generate the time of the next event as needed. This strategy works because nothing in our model between arrivals and departures. Unfortunately, there are multiple possible cases that can happen which we'll need consider one at a time. Still, this will be a relatively simple, short, and efficient simulation! 
+
+### Variables
 We're going to need to keep track of a few key variables throughout this simulation:
 
 * `t`: Current time
@@ -27,7 +33,7 @@ We're going to need to keep track of a few key variables throughout this simulat
 * `arrivals`: List of departure times
 * `overtime`: Time past the closing time that the last customer departs
 
-## Initialization
+### Initialization
 
 {% highlight python %}
 t = 0             
@@ -42,7 +48,7 @@ arrivals = []
 overtime = 0
 {% endhighlight %}
 
-## Case 1 - An arrival occurs before the next departure
+### Case 1 - An arrival occurs before the next departure
 
 {% highlight python %}
 t = 0             
@@ -56,7 +62,7 @@ departures = []
 arrivals = []
 overtime = 0
 {% endhighlight %}
-## Case 2 - A departure occurs before the next arrival
+### Case 2 - A departure occurs before the next arrival
 
 {% highlight python %}
 # advance time to next departure
@@ -72,7 +78,7 @@ D.append(t)
 # print("Departure ", nd, "at time ", t)
 {% endhighlight %}
 
-## Case 3 - The next arrival or departure occurs after the closing time and there are the queue isn't empty
+### Case 3 - The next arrival or departure occurs after the closing time and there are the queue isn't empty
 
 {% highlight python %}
 t = td
@@ -83,7 +89,7 @@ if n > 0:
 	td = t + Y
 D.append(t){% endhighlight %}
 
-## Case 4 - The next arrival or departure occurs after the closing time and there are the queue isn't empty
+### Case 4 - The next arrival or departure occurs after the closing time and there are the queue isn't empty
 
 {% highlight python %}
 Tp = max(t-T, 0)
@@ -92,8 +98,3 @@ break
 
 ## Analysis of queue lengths
 Lorem ipsum
-
-## Applications
-Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-
-
