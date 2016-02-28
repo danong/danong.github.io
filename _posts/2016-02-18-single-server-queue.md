@@ -99,4 +99,4 @@ break
 ## Analysis of queue lengths
 Lorem ipsum
 
-![placeholder](/Images/ssqueue_scatter.png "Scatter Plot")
+[![placeholder](/images/ssqueue_scatter.png "Scatter Plot")](/images/ssqueue_scatter.png)
