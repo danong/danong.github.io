@@ -24,6 +24,7 @@ Found at your local gas station, ATM, and more, single server queues are every a
 Our basic strategy is quite simple. Instead of incrementing through time, we will jump forward to the time of the next event (e.g. arrival or departure) and randomly generate the time of the next event as needed. This strategy works because nothing in our model between arrivals and departures. Unfortunately, there are multiple possible cases that can happen which we'll need consider one at a time. Still, this will be a relatively simple, short, and efficient simulation! 
 
 Recall, the exponential distribution describes the inter-arrival times of a homogenous Poisson process. For simplicity's sake, we'll be using the exponential distribution to generate both arrival and departure times. The probability density function is:
+
 $$f(x;\lambda) = \lambda e^{-\lambda x}, x >= 0$$
 
 We could use inverse transform sampling to generate random numbers from an exponential distribution but we'll just be using the `expovariate(lambda)` function found in Python's inbuilt `random` module.
