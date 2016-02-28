@@ -12,6 +12,8 @@ The single server queue is the most basic model in queueing theory. This tutoria
 
 ## A Basic Queue
 Take a grocery store with one checkout aisle as an example of a single server queue. Customers randomly join the queue according to some probability distribution. The cashier, who can only serve a single person at a time, takes some randomly distributed amount of time to serve the first person in line. The store allows customers to join the line until some set closing time. After the closing time, nobody can join the queue but the cashier will continue to work until the queue is empty. In this tutorial, we will be using the exponential distribution for both arrival and departure times.
+
+
 <center><a href="/images/2016-02-18-single-server-queue/queue.jpg">
   <img src="/images/2016-02-18-single-server-queue/queue.jpg" alt="Queueing for the bus">
 </a></center>
