@@ -99,4 +99,5 @@ break
 ## Analysis of queue lengths
 Lorem ipsum
 
+$$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$
 [![placeholder](/images/ssqueue_scatter.png "Scatter Plot")](/images/ssqueue_scatter.png)
