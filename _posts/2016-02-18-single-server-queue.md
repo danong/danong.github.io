@@ -12,9 +12,9 @@ The single server queue is the most basic model in queueing theory. This tutoria
 
 ## A Basic Queue
 Take a grocery store with one checkout aisle as an example of a single server queue. Customers randomly join the queue according to some probability distribution. The cashier, who can only serve a single person at a time, takes some randomly distributed amount of time to serve the first person in line. The store allows customers to join the line until some set closing time. After the closing time, nobody can join the queue but the cashier will continue to work until the queue is empty. In this tutorial, we will be using the exponential distribution for both arrival and departure times.
-<a href="/images/2016-02-18-single-server-queue/queue.jpg">
+<center><a href="/images/2016-02-18-single-server-queue/queue.jpg">
   <img src="/images/2016-02-18-single-server-queue/queue.jpg" alt="Queueing for the bus">
-</a>
+</a></center>
 <center><i>Queueing for the bus. Tokyo, 2015</i></center>
 
 ## Applications
@@ -135,10 +135,10 @@ And we're done! You can find the full code [here](https://gist.github.com/danong
 ## Analysis of queue lengths
 It might be interesting to see how the maximum queue length is affected by `lambd_in` and `lambda_out` so I modified our simulation to try values of lambda from 0 to 2 and graph the results. 
 
-<a href="/images/2016-02-18-single-server-queue/ssqueue_scatter.png">
+<center><a href="/images/2016-02-18-single-server-queue/ssqueue_scatter.png">
   <img src="/images/2016-02-18-single-server-queue/ssqueue_scatter.png" alt="Scatter Plot">
-</a>
-<center><i>Results of simulation</i></center>
+</a></center>
+<center><p><i>Results of simulation</i></p></center>
 
 As we can see the maximum queue length stays low until the arrival $$\lambda$$ exceeds the departure $$\lambda$$. Then, the maximum queue length begins to increase linearly with the arrival $$\lambda$$. This makes sense since the expected value of an exponential distribution is given by $$E(X) = \lambda^{-1}$$!  
 
