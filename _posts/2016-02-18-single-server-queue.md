@@ -15,11 +15,16 @@ Take a grocery store with one checkout aisle as an example of a single server qu
 
 [![placeholder](/images/2016-02-18-single-server-queue/queue.jpg "Scatter Plot")](/images/2016-02-18-single-server-queue/queue.jpg)
 
+*Queueing for the bus. Tokyo, 2015*
+
 ## Applications
 Found at your local gas station, ATM, and more, single server queues are every around us. Single server queues aren't just applicable to retail situations. They can also be applied to industrial applications like factory production lines. Furthermore, by chaining multiple single server queues in parallel or series to create more sophisticated queueing systems, we model many more real world queueing systems such as traffic, server loads, etc. 
 
 ## Implementation
 Our basic strategy is quite simple. Instead of incrementing through time, we will jump forward to the time of the next event (e.g. arrival or departure) and randomly generate the time of the next event as needed. This strategy works because nothing in our model between arrivals and departures. Unfortunately, there are multiple possible cases that can happen which we'll need consider one at a time. Still, this will be a relatively simple, short, and efficient simulation! 
+
+$$f(x;\lambda) = \lambda e^{-\lambda x}$$
+
 
 ### Variables
 We're going to need to keep track of a few key variables throughout this simulation:
@@ -101,5 +106,5 @@ break
 ## Analysis of queue lengths
 Lorem ipsum
 
-$$\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}$$
+$$E(X) = \lambda^-1$$
 [![placeholder](/images/2016-02-18-single-server-queue/ssqueue_scatter.png "Scatter Plot")](/images/2016-02-18-single-server-queue/ssqueue_scatter.png)
