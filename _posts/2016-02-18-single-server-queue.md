@@ -3,7 +3,7 @@ layout: post
 title: Single Server Queue Tutorial (Python)
 ---
 
-The single server queue is the most basic model in queueing theory. This tutorial teaches beginner computer scientists how to simulate a single server queue.
+The single server queue is the most basic model in queueing theory. This tutorial teaches beginner computer scientists how to simulate a single server queue. Learning to simulate a single server queue is a great introduction to both queueing theory and discrete event simulation!
 
 ## Prerequisites
 * Have Python 2.7 or greater installed
@@ -46,10 +46,13 @@ We're going to need to keep track of a few key variables throughout this simulat
 * `lambda_out`: Lambda for departures
 
 ### Initialization
-At the start of our simulation (`t = 0`), there is nobody in line and we have yet to serve anybody. We generate the time of our next arrival with `time_arrive = random.expovariate(lambd_in)` and set the time of our next departure to infinity. This makes sense because there is currently nobody in line. We will be waiting forever for the next person to depart when there is nobody in line! 
+At the start of our simulation (`t = 0`), there is nobody in line and we have yet to serve anybody. We generate the time of our next arrival with `time_arrive = random.expovariate(lambd_in)` and set the time of our next departure to infinity. This makes sense because there is currently nobody in line. We will be waiting forever for the next person to depart when there is nobody in line! We can arbitrarily choose values for our closing time and lambdas. 
 {% highlight python %}
+lambd_in = 0.5
+lambd_out = 0.4
+closing_time = 100
+
 t = 0             
-closing_time = 1000
 num_arrivals = 0
 num_departures = 0
 n = 0
@@ -62,56 +65,79 @@ overtime = 0
 
 Now we enter a loop which repeats as long as either the current time is below the closing time or the queue isn't empty.
 
-### Case 1 - An arrival occurs before the next departure
+`while t < closing_time or n >= 0`
+
+There are four possible ways things could happen that we have to look at and program individually.
+
+### Case 1 - An arrival occurs before the next departure and closing time
+If the next event to occur is an arrival, we move time along to the time of that arrival, `time_arrive`. We also increment our counter variables for the number of arrivals and the number of people in line. Finally, we generate a new arrival time for the subsequent arrival.
 
 {% highlight python %}
-t = 0             
-closing_time = 1000
-num_arrivals = 0
-num_departures = 0
-n = 0
-time_depart = float('inf')
-time_arrive = random.expovariate(lambd_in)
-departures = []
-arrivals = []
-overtime = 0
+t = time_arrive
+num_arrivals += 1 
+n += 1 
+time_arrive = random.expovariate(lambd_in) + t
 {% endhighlight %}
-### Case 2 - A departure occurs before the next arrival
+
+If the queue was previously empty, we have to generate a new departure time since the person that just arrived is in the front of the queue and will be the next departure.
+{% highlight python %}
+if n == 1:
+	Y = random.expovariate(lambd_out)
+	time_depart = t + Y
+arrivals.append(t)
+{% endhighlight %}
+
+### Case 2 - A departure occurs before the next arrival and closing time
+Again, we move time along to the time of the next event, which is a departure in this case. Since someone has been served and has left the line, we decrement `n` and increment num_departures. 
 
 {% highlight python %}
 # advance time to next departure
-t = td
+t = time_depart
 n -= 1
-nd += 1
-if n == 0:
-	td = float('inf')
-else:
-	Y = random.expovariate(lambd_out)
-	td = t + Y
-D.append(t)
-# print("Departure ", nd, "at time ", t)
+num_departures += 1
 {% endhighlight %}
 
-### Case 3 - The next arrival or departure occurs after the closing time and there are the queue isn't empty
+If the queue is now empty, we have to set the time of the next departure to infinity. This is just like what we did during initialization. If the queue isn't empty, we generate the time of the next departure.
+{% highlight python %}
+if n == 0:
+	time_depart = float('inf')
+else:
+	Y = random.expovariate(lambd_out)
+	time_depart = t + Y
+departures.append(t)
+{% endhighlight %}
+
+### Case 3 - The next arrival or departure occurs after the closing time and the queue *isn't* empty
+Since the next event occurs after the closing time, we can now ignore when the next arrival. Remember, we aren't admitting anybody to our queue after the closing time but we will continue to serve the people already in the queue. This case is very similar to case 2 since we only look departures.
 
 {% highlight python %}
-t = td
+t = time_depart
 n -= 1
-nd += 1
+num_departures += 1
 if n > 0:
 	Y = random.expovariate(lambd_out)
 	td = t + Y
-D.append(t){% endhighlight %}
+departures.append(t)
+{% endhighlight %}
 
-### Case 4 - The next arrival or departure occurs after the closing time and there are the queue isn't empty
+Note that we only generate a new departure time if there are still people left in the queue.
+
+### Case 4 - The next arrival or departure occurs after the closing time and the queue *is* empty
+Our simulation is over! All we need to do is calculate the amount of time after closing that our store stayed opened and break out of the while loop.
 
 {% highlight python %}
-Tp = max(t-T, 0)
+overtime = max(t-closing_time, 0)
 break
 {% endhighlight %}
 
-## Analysis of queue lengths
-Lorem ipsum
+And we're done! You can find the full code [here](https://gist.github.com/danong/32d162d3b9aec5739a62). 
 
-$$E(X) = \lambda^{-1}$$
+## Analysis of queue lengths
+It might be interesting to see how the maximum queue length is affected by `lambd_in` and `lambda_out` so I modified our simulation to try values of lambda from 0 to 2 and graph the results. 
+
 [![placeholder](/images/2016-02-18-single-server-queue/ssqueue_scatter.png "Scatter Plot")](/images/2016-02-18-single-server-queue/ssqueue_scatter.png)
+*Results of simulation*
+
+As we can see the maximum queue length stays low until the arrival $$\lambda$$ exceeds the departure $$\lambda$$. Then, the maximum queue length begins to increase linearly with the arrival $$\lambda$$. This makes sense since the expected value of an exponential distribution is given by $$E(X) = \lambda^{-1}$$!  
+
+Here is the [full code](https://gist.github.com/danong/08c9efffeeec30ad429e) for this mini-experiment. I hope you find this tutorial helpful and interesting. Thanks for reading!
