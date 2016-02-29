@@ -2,9 +2,10 @@
 layout: page
 title: About
 ---
-<img src="/images/profile.jpg" align="right" alt="Profile">
 
 ## Hi, I'm Daniel!
+
+<img src="/images/profile.jpg" align="right" alt="Profile">
 
 In high school my good friend, Scott Swingle, taught me how to write simple programs on my TI-84 using TI-Basic. It's been seven years since that day and I'm now finishing up the last year of my B.Sc. in Computer Science (Mathematics) at Santa Clara University. I find myself particularly interested in machine learning. I think using clever algorithms, artificial neural networks, and data to solve problems is super cool. I'm also interested in the Computational Cognitive Science approach to designing better learning machines by studying the processes by which humans learn.
 
