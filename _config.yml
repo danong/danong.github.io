@@ -10,7 +10,7 @@ title:            Daniel Ong
 tagline:          'Daniel Ong'
 description:      'Machine learning, statistics, simulation, and whatever else I find interesting.'
 url:              http://danielong.xyz
-baseurl:          /blog
+baseurl:          /
 
 author:
   name:           'Daniel Ong'
