@@ -2,14 +2,16 @@
 layout: page
 title: About
 ---
+<img src="/images/profile.jpg" align="right" alt="Profile">
 
-Hi! I'm Daniel!
+## Hi, I'm Daniel!
 
-<img src="/images/profile.jp" align="right" alt="Profile">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget libero in felis interdum egestas. Nulla facilisis feugiat elit et bibendum. Aliquam dignissim ornare justo, nec accumsan tellus efficitur eu. Fusce feugiat quis lectus vitae rhoncus. Donec vitae urna mattis, vulputate elit non, malesuada nunc. Integer eu neque ut mi feugiat facilisis. In scelerisque in risus eleifend rhoncus. In vitae sapien feugiat, porta lorem quis, dictum nulla. Sed volutpat, arcu vitae bibendum vulputate, leo est sodales turpis, sed laoreet lacus mauris consectetur ante. Aliquam vitae eros ligula. Pellentesque euismod, nulla et ultrices molestie, nunc lacus placerat enim, ac pharetra lectus risus sit amet risus. In hac habitasse platea dictumst. Nulla posuere ipsum nisi, a faucibus nibh iaculis eu. Nullam vulputate, nunc nec vestibulum vulputate, enim augue bibendum neque, dictum efficitur ex est in risus. In a gravida quam. Nullam cursus consectetur dui et tristique.
+In high school my good friend, Scott Swingle, taught me how to write simple programs on my TI-84 using TI-Basic. It's been seven years since that day and I'm now finishing up the last year of my B.Sc. in Computer Science (Mathematics) at Santa Clara University. I find myself particularly interested in machine learning. I think using clever algorithms, artificial neural networks, and data to solve problems is super cool. I'm also interested in the Computational Cognitive Science approach to designing better learning machines by studying the processes by which humans learn.
 
-Curabitur in sem in mi hendrerit ultrices non vel lacus. Sed varius sem id viverra iaculis. Proin laoreet molestie nisl, ut aliquet ligula ullamcorper sed. Etiam tellus massa, dictum ac ullamcorper ut, scelerisque eget augue. Maecenas in nibh nec sem pretium rhoncus sed non dolor. Phasellus vestibulum, felis ac laoreet ultricies, neque lorem ullamcorper risus, id sagittis arcu nunc non sem. Nulla facilisi. Aliquam elementum non risus fringilla hendrerit.
+I spend my free time:
+* Making music - I love listening to music and making music. I'd consider myself decent at playing the piano and saxophone but I'm currently concentrating on learning to play the guitar. I own an Epiphone Sheraton II in ebony and a Cort X5 in metallic red.
+* Reading - I tend to binge read a single genre for a few months. Right now, I'm going through a contemporary sci-fi phase. The next book I plan on reading is Liu Cixin's *The Dark Forest*.
+* Learning photograph - My elder sister gave me her DSLR (Canon EOS 500D) this past summer and I've been working on improving my composition. I'm excited to take a black and white film photography course this spring. Feel free to check out my [flickr](https://www.flickr.com/photos/36200327@N06/)!
 
-In high school my good friend, Scott Swingle, taught me how to write simple programs on my TI-84 using TI-Basic. 
-
-Thanks for reading!
+## Get in touch
+Want to chat? Have a job you think I might be interested in? Feel free to email me at <a href="mailto:danielong1@gmail.com" target="_top">danielong1@gmail.com</a>.
