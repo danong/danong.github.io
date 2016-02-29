@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tutorial: Single Server Queue Simulation (Python)
+title: Tutorial - Single Server Queue Simulation (Python)
 ---
 
 The single server queue is the most basic model in queueing theory. This tutorial teaches beginner computer scientists how to simulate a single server queue. Learning to simulate a single server queue is a great introduction to both queueing theory and discrete event simulation!
