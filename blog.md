@@ -13,7 +13,7 @@ title: Blog
     </h1>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
-
+	<p> This is a post </p>
     {{ post.content }}
   </div>
   {% endfor %}
