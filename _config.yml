@@ -17,3 +17,4 @@ author:
   url:            https://github.com/danong/
 
 paginate:         3
+paginate_path:    "/blog/page:num/"
