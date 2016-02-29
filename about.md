@@ -15,5 +15,8 @@ I spend my free time:
 * Reading - I tend to binge read a single genre for a few months. Right now, I'm going through a contemporary sci-fi phase. The next book I plan on reading is Liu Cixin's *The Dark Forest*.
 * Learning photograph - My elder sister gave me her DSLR (Canon EOS 500D) this past summer and I've been working on improving my composition. I'm excited to take a black and white film photography course this spring. Feel free to check out my [flickr](https://www.flickr.com/photos/36200327@N06/)!
 
+## This website
+This website was created using a modified version of the [Hyde Theme](https://github.com/poole/hyde) for [Poole](http://getpoole.com/) for [Jekkyl](https://jekyllrb.com/) and is hosted on [Github Pages](https://pages.github.com/). 
+
 ## Get in touch
 Want to chat? Have a job you think I might be interested in? Feel free to email me at <a href="mailto:danielong1@gmail.com" target="_top">danielong1@gmail.com</a>.
