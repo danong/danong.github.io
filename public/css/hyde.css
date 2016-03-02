@@ -103,7 +103,8 @@ html {
 
 /* Fix height issues */
 @media (max-height: 1080px) {
-  .sidebar {
+  .sidebar,
+  .sidebar-nav-item  {
 	line-height: 1.5;
   }
 }
