@@ -103,7 +103,7 @@ html {
 
 @media (max-height: 900px) {
 	.sidebar-nav-item {
-		line-height: 1.0;
+		line-height: 1.2;
 	}
 	.top-image {
 		display: none;
