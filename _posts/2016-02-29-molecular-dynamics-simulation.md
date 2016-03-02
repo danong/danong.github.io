@@ -103,8 +103,11 @@ for particle in my_particles:
 ## A discrete problem
 If you run the code as is right now, you'll occasionally see particles whizzing around at ridiculous speeds before the program crashes. What's going wrong? How do we fix this? Unfortunately, this bug is an inherent issue with our strategy of discretizing time. Imagine a world with 2 particles. We look at our starting time and calculate the Lennard-Jones force between the two particles. We calculate their velocity vectors, and assume that they move in that direction and at that speed until the next time frame. We then jump forward to that time frame and calculate the new velocity vectors. Realistically, the velocity vectors would continuously be changing as the two particles move in relation to each other. The problem occurs when two particles move too close to one another during a time jump. Suddenly, the Lennard-Jones force between them is huge and they go rocketing off in different directions. The higher the speed of a particle, the more likely it is to suddenly appear next to another particle instead of being gradually pushed away. So, the problem compounds as more and more particles begin speeding up to ridiculous values and eventually, the variables for their position and speed overflow.  
 
-<center><img src="/2016-02-29-molecular-dynamics-simulation/overflow.jpg" alt="Overflow"></center>
-<center><i>Example overflow :(</i></center>
+(% highlight %)
+OverflowError: Python int too large to convert to C long
+(% endhighlight %)
+
+<i>Example overflow :( </i>
 
 To be honest, I don't yet know how to best fix this problem. It might be necessary to do integration to calculate the accurate position of each vector but that's very computationally expensive. I've tried introducing drag but that made it difficult for stationary particles to begin moving while barely reducing the speed of the rogue particles.
 
