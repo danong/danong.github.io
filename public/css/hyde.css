@@ -100,6 +100,15 @@ html {
   display: block;
   line-height: 1.75;
 }
+
+@media (max-height: 900px) {
+	.sidebar-nav-item {
+		line-height: 1.0;
+	}
+	.top-image {
+		display: none;
+	}
+}
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: underline;
