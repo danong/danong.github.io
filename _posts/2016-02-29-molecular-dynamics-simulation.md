@@ -5,8 +5,8 @@ title: Molecular Dynamics Simulation
 
 I recently wrote a molecular dynamics simulation as a project for my simulations course. The Lennad-Jones potential is commonly used to model the interaction of between molecules.
 
-<iframe src="//giphy.com/embed/KJes8CXWKg2JO" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-<i> Example simulation </i>
+<center><iframe src="//giphy.com/embed/KJes8CXWKg2JO" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></center>
+<center><i> Example simulation </i></center>
 
 ## Prerequisites
 * Have Python 2.7 or greater installed
@@ -20,7 +20,7 @@ $$V_{LJ} = 4 \epsilon \left[ \left( \frac{\sigma}{r} \right) ^{12} - \left( \fra
 
 where ε is the depth of the potential well, σ is the finite distance at which the inter-particle potential is zero, and r is the distance between the particles ([source](https://en.wikipedia.org/wiki/Lennard-Jones_potential)). 
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/12-6-Lennard-Jones-Potential.svg" alt="Lennad Jones Potential">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/12-6-Lennard-Jones-Potential.svg" width="50%" height="50%" alt="Lennad Jones Potential">
 <center><i>By Olaf Lenz, Rainald62 [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY-SA 2.5-2.0-1.0 (http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0)], via Wikimedia Commons</i></center>
 
 When we differentiate the potential energy with respect to r, we can find the Lennad-Jones Force:
