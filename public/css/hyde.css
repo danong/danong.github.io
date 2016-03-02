@@ -115,20 +115,6 @@ html {
   }
 }
 
-@media (max-height: 600px) {
-  .sidebar,
-  .sidebar-nav-item  {
-	line-height: 1.25;
-  }
-}
-
-@media (max-height: 600px) {
-  .sidebar,
-  .sidebar-nav-item  {
-	line-height: 1;
-  }
-}
-
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: underline;
