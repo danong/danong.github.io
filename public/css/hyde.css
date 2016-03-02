@@ -105,17 +105,20 @@ html {
 @media (max-height: 1080px) {
   .sidebar,
   .sidebar-nav-item  {
-	line-height: 1.5;
+	line-height: 1.4;
   }
 }
 
-@media (max-height: 900px) {
+@media (max-height: 950px) {
   .top-image {
 	display: none;	
   }
+}
+
+@media (max-height: 600px) {
   .sidebar,
   .sidebar-nav-item  {
-    line-height: 1.25;
+	line-height: 1.25;
   }
 }
 
