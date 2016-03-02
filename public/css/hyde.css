@@ -112,13 +112,15 @@ html {
   .top-image {
 	display: none;	
   }
-  .sidebar {
+  .sidebar,
+  .sidebar-nav-item  {
     line-height: 1.25;
   }
 }
 
 @media (max-height: 600px) {
-  .sidebar {
+  .sidebar,
+  .sidebar-nav-item  {
 	line-height: 1;
   }
 }
