@@ -3,9 +3,10 @@ layout: post
 title: Molecular Dynamics Simulation
 ---
 
-The Lennad-Jones potential is commonly used to model the interaction of between molecules. Molecules should be weakly attracted to each other from a distance but strongly repelled from each other when up close. This tutorial covers a simple way to simulate and display molecules.
+I recently wrote a molecular dynamics simulation as a project for my simulations course. The Lennad-Jones potential is commonly used to model the interaction of between molecules.
 
-<iframe src="//giphy.com/embed/KJes8CXWKg2JO" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/KJes8CXWKg2JO">via GIPHY</a></p>
+<iframe src="//giphy.com/embed/KJes8CXWKg2JO" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+<i> Example simulation </i>
 
 ## Prerequisites
 * Have Python 2.7 or greater installed
@@ -15,16 +16,16 @@ The Lennad-Jones potential is commonly used to model the interaction of between 
 ## Lennad-Jones Potential
 The Lennad-Jones Potential is defined as:
 
-$$V_{LJ} = 4 \epsilon [(\frac{\sigma}{r})^{12}  - (\frac{\sigma}{r})^{6}]  $$
+$$V_{LJ} = 4 \epsilon \left[ \left( \frac{\sigma}{r} \right) ^{12} - \left( \frac{\sigma}{r} \right) ^{6} \right]  $$
 
 where ε is the depth of the potential well, σ is the finite distance at which the inter-particle potential is zero, and r is the distance between the particles ([source](https://en.wikipedia.org/wiki/Lennard-Jones_potential)). 
 
-<img src=:"https://upload.wikimedia.org/wikipedia/commons/5/51/12-6-Lennard-Jones-Potential.svg" alt="Lennad Jones Potential">
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/12-6-Lennard-Jones-Potential.svg" alt="Lennad Jones Potential">
 <center><i>By Olaf Lenz, Rainald62 [GFDL (http://www.gnu.org/copyleft/fdl.html), CC-BY-SA-3.0 (http://creativecommons.org/licenses/by-sa/3.0/) or CC BY-SA 2.5-2.0-1.0 (http://creativecommons.org/licenses/by-sa/2.5-2.0-1.0)], via Wikimedia Commons</i></center>
 
 When we differentiate the potential energy with respect to r, we can find the Lennad-Jones Force:
 
-$$F_{LJ} = - 24 \epsilon [2(\frac{\sigma^{12}}{r^{13}}) - 6(\frac{\sigma^{6}}{r^{7}})]$$
+$$F_{LJ} = - 24 \epsilon \left[ 2 \left( \frac{\sigma^{12}}{r^{13}} \right) - 6 \left( \frac{\sigma^{6}}{r^{7}}\right)\right]$$
 
 This form will be more useful when calculating the inter-particle forces.
 
