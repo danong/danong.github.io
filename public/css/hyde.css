@@ -103,19 +103,22 @@ html {
 
 /* Fix height issues */
 @media (max-height: 1080px) {
-  .sidebar-nav-item {
-	line-height: 1.2;
+  .sidebar {
+	line-height: 1.5;
   }
 }
 
-@media (max-height: 800px) {
+@media (max-height: 900px) {
   .top-image {
 	display: none;	
+  }
+  .sidebar {
+    line-height: 1.25;
   }
 }
 
 @media (max-height: 600px) {
-  .sidebar-nav-item {
+  .sidebar {
 	line-height: 1;
   }
 }
