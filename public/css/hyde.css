@@ -101,14 +101,25 @@ html {
   line-height: 1.75;
 }
 
-@media (max-height: 900px) {
-	.sidebar-nav-item {
-		line-height: 1.2;
-	}
-	.top-image {
-		display: none;
-	}
+/* Fix height issues */
+@media (max-height: 1080px) {
+  .sidebar {
+	line-height: 1.5;
+  }
 }
+
+@media (max-height: 800px) {
+  .top-image {
+	display: none;	
+  }
+}
+
+@media (max-height: 600px) {
+  .sidebar {
+	line-height: 1.25;
+  }
+}
+
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: underline;
