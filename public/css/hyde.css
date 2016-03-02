@@ -103,8 +103,8 @@ html {
 
 /* Fix height issues */
 @media (max-height: 1080px) {
-  .sidebar {
-	line-height: 1.5;
+  .sidebar-nav-item {
+	line-height: 1.2;
   }
 }
 
@@ -115,8 +115,8 @@ html {
 }
 
 @media (max-height: 600px) {
-  .sidebar {
-	line-height: 1.25;
+  .sidebar-nav-item {
+	line-height: 1;
   }
 }
 
