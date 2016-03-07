@@ -32,7 +32,7 @@ This form will be more useful when calculating the inter-particle forces.
 ## Basic Strategy
 I simulate n particles by storing the position, speed, and angle of direction for each particle. For every particle, I calculate the LJ force it experiences from every other particle. I sum all a particle's force vectors to determine the overall force and use that overall force vector calculate the new position, angle, and speed of each particle. Once that calculation is complete for all particles, the program renders the screen with the updated position of the particles. Since I jump forward in discrete steps, this is a discrete event simulation. Since I render each step, the simulation looks smooth and continuous as long as there aren't too many particles on screen for my laptop to handle. The upper limit on my laptop seems to be around 200 particles.
 
-Each particle should have n force vectors. n-1 Lennard-Jones force vectors from the n-1 other particles and a vector representing it's current speed and direction.
+Each particle should have n force vectors. n-1 Lennard-Jones force vectors from the n-1 other particles and a vector representing its current speed and direction.
 
 ## An Introduction to Pygame
 Pygame is a FOSS Python module for writing video games. While I'm not exactly writing a game, Pygame is going to be really useful for rendering and visualizing our simulation. Peter Collingridge wrote an excellent tutorial on simulating the trajectory of a cannonball in Pygame which can be found [here](http://www.petercollingridge.co.uk/pygame-physics-simulation). Rather than repeating information, I recommend going through parts 1 through 5 in his tutorial to create a basic Pygame window and a Particle class. 
