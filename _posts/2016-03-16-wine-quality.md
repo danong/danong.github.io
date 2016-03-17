@@ -2,6 +2,7 @@
 layout: post
 title: Wine Quality and pH Dependency
 ---
+
 ## Introduction
 
 Wine experts claim that a wine's pH level is "critical not only to its flavor but to nearly every aspect of the wine" ([source](http://winemakersacademy.com/importance-ph-wine-making/)). While I'm not a sommelier and I don't have some crazy collection of wines to sample, I can use statistics to determine if there is a dependency between the pH level and the quality of Vinho Verde red wine. 
