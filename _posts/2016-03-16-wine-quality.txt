@@ -25,7 +25,6 @@ from scipy.stats import chi2_contingency
 data = pd.read_csv('winequalityred.csv', delimiter=';', usecols=(8, 11))
 test = data.groupby( [pd.cut(data['pH'], np.arange(0.5, 9, 0.5)), 'quality'] )
 print(test.size())
-{% endhighlight %}
 
 
     pH        quality
@@ -48,7 +47,8 @@ print(test.size())
               8            2
     (4, 4.5]  6            2
     dtype: int64
-    
+{% endhighlight %}
+
 
 ## Contingency Table
 
@@ -86,7 +86,6 @@ print("Chi 2 value:", chi2)
 print("P value:", p)
 print("Degrees of freedom:", dof)
 print("Expected values:", expected)
-{% endhighlight %}
 
 
     Chi 2 value: 0.777415781381
@@ -94,7 +93,7 @@ print("Expected values:", expected)
     Degrees of freedom: 2
     Expected values: [[  16.28517824  649.54596623   78.16885553]
      [  18.71482176  746.45403377   89.83114447]]
-    
+{% endhighlight %}
 
 ## Conclusion
 
