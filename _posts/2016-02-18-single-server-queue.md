@@ -5,12 +5,12 @@ title: Tutorial - Single Server Queue Simulation (Python)
 
 The single server queue is the most basic model in queueing theory. This tutorial teaches beginner computer scientists how to simulate a single server queue. Learning to simulate a single server queue is a great introduction to both queueing theory and discrete event simulation!
 
-# Prerequisites
+## Prerequisites
 * Have Python 2.7 or greater installed
 * A basic understanding of programming in Python
 * Familiarity with statistics and [probability distributions](https://en.wikipedia.org/wiki/Probability_distribution).
 
-# A Basic Queue
+## A Basic Queue
 Take a grocery store with one checkout aisle as an example of a single server queue. Customers randomly join the queue according to some probability distribution. The cashier, who can only serve a single person at a time, takes some randomly distributed amount of time to serve the first person in line. The store allows customers to join the line until some set closing time. After the closing time, nobody can join the queue but the cashier will continue to work until the queue is empty. In this tutorial, we will be using the exponential distribution for both arrival and departure times.
 
 
@@ -19,10 +19,10 @@ Take a grocery store with one checkout aisle as an example of a single server qu
 </a></center>
 <center><i>Queueing for the bus. Tokyo, 2015</i></center>
 
-# Applications
+## Applications
 Found at your local gas station, ATM, and more, single server queues are every around us. Single server queues aren't just applicable to retail situations. They can also be applied to industrial applications like factory production lines. Furthermore, by chaining multiple single server queues in parallel or series to create more sophisticated queueing systems, we model many more real world queueing systems such as traffic, server loads, etc. 
 
-# Implementation
+## Implementation
 Our basic strategy is quite simple. Instead of incrementing through time, we will jump forward to the time of the next event (e.g. arrival or departure) and randomly generate the time of the next event as needed. This strategy works because nothing in our model between arrivals and departures. Unfortunately, there are multiple possible cases that can happen which we'll need consider one at a time. Still, this will be a relatively simple, short, and efficient simulation! 
 
 Recall, the exponential distribution describes the inter-arrival times of a homogenous Poisson process. For simplicity's sake, we'll be using the exponential distribution to generate both arrival and departure times. The probability density function is:
@@ -31,7 +31,7 @@ $$f(x;\lambda) = \lambda e^{-\lambda x}, x >= 0$$
 
 We could use inverse transform sampling to generate random numbers from an exponential distribution but we'll just be using the `expovariate(lambda)` function found in Python's inbuilt `random` module.
  
-## Variables
+### Variables
 We're going to need to keep track of a few key variables throughout this simulation:
 
 * `t`: Current time
@@ -47,7 +47,7 @@ We're going to need to keep track of a few key variables throughout this simulat
 * `lambd_in`: Lambda for arrivals
 * `lambda_out`: Lambda for departures
 
-## Initialization
+### Initialization
 At the start of our simulation (`t = 0`), there is nobody in line and we have yet to serve anybody. We generate the time of our next arrival with `time_arrive = random.expovariate(lambd_in)` and set the time of our next departure to infinity. This makes sense because there is currently nobody in line. We will be waiting forever for the next person to depart when there is nobody in line! We can arbitrarily choose values for our closing time and lambdas. 
 {% highlight python %}
 lambd_in = 0.5
@@ -71,7 +71,7 @@ Now we enter a loop which repeats as long as either the current time is below th
 
 There are four possible ways things could happen that we have to look at and program individually.
 
-## Case 1 - An arrival occurs before the next departure and closing time
+### Case 1 - An arrival occurs before the next departure and closing time
 If the next event to occur is an arrival, we move time along to the time of that arrival, `time_arrive`. We also increment our counter variables for the number of arrivals and the number of people in line. Finally, we generate a new arrival time for the subsequent arrival.
 
 {% highlight python %}
@@ -89,7 +89,7 @@ if n == 1:
 arrivals.append(t)
 {% endhighlight %}
 
-## Case 2 - A departure occurs before the next arrival and closing time
+### Case 2 - A departure occurs before the next arrival and closing time
 Again, we move time along to the time of the next event, which is a departure in this case. Since someone has been served and has left the line, we decrement `n` and increment num_departures. 
 
 {% highlight python %}
@@ -109,7 +109,7 @@ else:
 departures.append(t)
 {% endhighlight %}
 
-## Case 3 - The next arrival or departure occurs after the closing time and the queue *isn't* empty
+### Case 3 - The next arrival or departure occurs after the closing time and the queue *isn't* empty
 Since the next event occurs after the closing time, we can now ignore when the next arrival. Remember, we aren't admitting anybody to our queue after the closing time but we will continue to serve the people already in the queue. This case is very similar to case 2 since we only look departures.
 
 {% highlight python %}
@@ -124,7 +124,7 @@ departures.append(t)
 
 Note that we only generate a new departure time if there are still people left in the queue.
 
-## Case 4 - The next arrival or departure occurs after the closing time and the queue *is* empty
+### Case 4 - The next arrival or departure occurs after the closing time and the queue *is* empty
 Our simulation is over! All we need to do is calculate the amount of time after closing that our store stayed opened and break out of the while loop.
 
 {% highlight python %}
@@ -134,7 +134,7 @@ break
 
 And we're done! You can find the full code [here](https://gist.github.com/danong/32d162d3b9aec5739a62). 
 
-# Analysis of queue lengths
+## Analysis of queue lengths
 It might be interesting to see how the maximum queue length is affected by `lambd_in` and `lambda_out` so I modified our simulation to try values of lambda from 0 to 2 and graph the results. 
 
 <center><a href="/images/2016-02-18-single-server-queue/ssqueue_scatter.png">

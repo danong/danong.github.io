@@ -3,7 +3,7 @@ layout: post
 title: Wine Quality and pH Dependency
 ---
 
-# Introduction
+## Introduction
 
 Wine experts claim that a wine's pH level is "critical not only to its flavor but to nearly every aspect of the wine" ([source](http://winemakersacademy.com/importance-ph-wine-making/)). While I'm not a sommelier and I don't have some crazy collection of wines to sample, I can use statistics to determine if there is a dependency between the pH level and the quality of Vinho Verde red wine. 
 
@@ -11,7 +11,7 @@ Wine experts claim that a wine's pH level is "critical not only to its flavor bu
 
 \\( H_a= \\) The two categorization schemes are dependent.
 
-# Source Data
+## Source Data
 
 I use data on wine hosted on the UCI Machine Learning Repository ([source](https://archive.ics.uci.edu/ml/datasets/Wine+Quality)). For this test, we only use columns 9 (pH) and 12 (quality).
 
@@ -51,7 +51,7 @@ print(test.size())
 {% endhighlight %}
 
 
-# Contingency Table
+## Contingency Table
 
 Our current contingency table looks like this:
 
@@ -96,6 +96,6 @@ print("Expected values:", expected)
      [  18.71482176  746.45403377   89.83114447]]
 {% endhighlight %}
 
-# Conclusion
+## Conclusion
 
 As you can see, the \\(X^2\\) value is only 0.777 which leads to a p-value of 0.6779. There is weak evidence against the null hypothesis so we fail to reject the claim that pH level is independent of quality for Vinho Verde red wine. 

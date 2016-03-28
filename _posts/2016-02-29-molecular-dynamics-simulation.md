@@ -8,12 +8,12 @@ I recently wrote a discrete molecular dynamics simulation as a project for my si
 <center><iframe src="//giphy.com/embed/KJes8CXWKg2JO" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></center>
 <center><i> Example simulation </i></center>
 
-# Prerequisites
+## Prerequisites
 * Have Python 2.7 or greater installed
 * A basic understanding of programming in Python
 * Have [Pygame](http://pygame.org/hifi.html) installed: I used this particular [package](http://anaconda.org/krisvanneste/pygame)
 
-# Lennard-Jones Potential
+## Lennard-Jones Potential
 The Lennard-Jones Potential is defined as:
 
 $$V_{LJ} = 4 \epsilon \left[ \left( \frac{\sigma}{r} \right) ^{12} - \left( \frac{\sigma}{r} \right) ^{6} \right]  $$
@@ -29,15 +29,15 @@ $$F_{LJ} = - 24 \epsilon \left[ 2 \left( \frac{\sigma^{12}}{r^{13}} \right) - 6 
 
 This form will be more useful when calculating the inter-particle forces.
 
-# Basic Strategy
+## Basic Strategy
 I simulate n particles by storing the position, speed, and angle of direction for each particle. For every particle, I calculate the LJ force it experiences from every other particle. I sum all a particle's force vectors to determine the overall force and use that overall force vector calculate the new position, angle, and speed of each particle. Once that calculation is complete for all particles, the program renders the screen with the updated position of the particles. Since I jump forward in discrete steps, this is a discrete event simulation. Since I render each step, the simulation looks smooth and continuous as long as there aren't too many particles on screen for my laptop to handle. The upper limit on my laptop seems to be around 200 particles.
 
 Each particle should have n force vectors. n-1 Lennard-Jones force vectors from the n-1 other particles and a vector representing its current speed and direction.
 
-# An Introduction to Pygame
+## An Introduction to Pygame
 Pygame is a FOSS Python module for writing video games. While I'm not exactly writing a game, Pygame is going to be really useful for rendering and visualizing our simulation. Peter Collingridge wrote an excellent tutorial on simulating the trajectory of a cannonball in Pygame which can be found [here](http://www.petercollingridge.co.uk/pygame-physics-simulation). Rather than repeating information, I recommend going through parts 1 through 5 in his tutorial to create a basic Pygame window and a Particle class. 
  
-# Helper functions
+## Helper functions
 I'm going to need a couple of helper functions. First, I define a function to add two vectors (code from the beginning of part 6 of Peter Collingridge's tutorial). Next, I define a function which returns the angle between two particles. This is essential for figuring out which direction Lennard-Jones force points in. Of course, I'm also going to need a function which calculates the LJ force. A function which returns the scalar distance between two particles will be helpful too.
 
 {% highlight python %}
@@ -82,7 +82,7 @@ def particle_distance(a, b):
     return math.sqrt((a.x-b.x)**2 + (a.y-b.y)**2)
 {% endhighlight %}
 
-# Putting it all together
+## Putting it all together
 I iterate through all the combinations of 2 particles to calculate and add the Lennard Jones forces between each particle. Then, all I have to do is calculate each particle's new position, check if the particle bounced off the side of the boundary, and render the frame.
 
 {% highlight python %}
@@ -100,7 +100,7 @@ for particle in my_particles:
 	particle.display()
 {% endhighlight %}
 
-# A discrete problem
+## A discrete problem
 If you run the code as is right now, you'll occasionally see particles whizzing around at ridiculous speeds before the program crashes. What's going wrong? How do we fix this? Unfortunately, this bug is an inherent issue with our strategy of discretizing time. Imagine a world with 2 particles. We look at our starting time and calculate the Lennard-Jones force between the two particles. We calculate their velocity vectors, and assume that they move in that direction and at that speed until the next time frame. We then jump forward to that time frame and calculate the new velocity vectors. Realistically, the velocity vectors would continuously be changing as the two particles move in relation to each other. The problem occurs when two particles move too close to one another during a time jump. Suddenly, the Lennard-Jones force between them is huge and they go rocketing off in different directions. The higher the speed of a particle, the more likely it is to suddenly appear next to another particle instead of being gradually pushed away. So, the problem compounds as more and more particles begin speeding up to ridiculous values and eventually, the variables for their position and speed overflow.  
 
 {% highlight python %}
