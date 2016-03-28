@@ -75,7 +75,7 @@ Since the counts for some cells are a low (below 5), I regroup my data as follow
 | (6, 8) | 17       | 752      | 86         |
 
 
-Now I compute the test statistic \\(X^2\\) and p-value using Sci Py.
+Now I compute the test statistic $X^2$ and p-value using Sci Py.
 
 
 
@@ -98,4 +98,4 @@ print("Expected values:", expected)
 
 ## Conclusion
 
-As you can see, the \\(X^2\\) value is only 0.777 which leads to a p-value of 0.6779. There is weak evidence against the null hypothesis so we fail to reject the claim that pH level is independent of quality for Vinho Verde red wine. 
+As you can see, the $X^2$ value is only 0.777 which leads to a p-value of 0.6779. There is weak evidence against the null hypothesis so we fail to reject the claim that pH level is independent of quality for Vinho Verde red wine. 
