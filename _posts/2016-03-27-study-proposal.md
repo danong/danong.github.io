@@ -1,22 +1,26 @@
 ---
 layout: post
-title: Independent Study Proposal: Deep Reinforcement Learning for Small Scale Combat in the Real-Time Strategy Game StarCraft: Broodwar
+title: Independent Study Proposal
 ---
 
-#Introduction
+# Introduction
+
 Until recently, reinforcement learning algorithms performed poorly in complicated environments with large numbers of states. In 2013, DeepMind Technologies used Deep Q-Networks, a novel reinforcement learning algorithm that combines convolutional neural networks and Q-Learning, to reach superhuman performance in multiple Atari Games using only raw sensory input [[1]](http://arxiv.org/abs/1511.08779). 
 
 The Deep Q-Learning algorithm presented in the DeepMind paper was only applied to single player Atari video games (i.e. single agent systems). In the real world, multiagent systems are more common than single agent systems. There has been recent success in applying Q-Networks to two agents in the Atari video game Pong [[1]](http://arxiv.org/abs/1511.08779). 
  
 I, Daniel Ong, would like to build on this body of work by researching how deep reinforcement learning techniques can be applied to multiple agents in small-scale combat in the real-time strategy game StarCraft: Broodwar.
 
-#Background
-##Game Selection
+# Background
+
+## Game Selection
+
 StarCraft: Broodwar is a popular 1998 video game by Saffire and Blizzard Entertainment. Players control one of three races with the goal of eliminating other players. This involves gathering resources, researching new technologies, and building armies in real time. Additionally, StarCraft is a game of imperfect information as players can only see the area around their own units. All these factors combine to create a unique and challenging platform for AI research \cite{Ontañón2015, history}. 
 
 Human players divide the act of playing StarCraft into two categories: macromanagement and micromanagement. Macromanagement involves deciding on a strategy and producing units or buildings. Micromanagement involves moving and attacking with units. Creating a full StarCraft: Broodwar AI that manages both macromanagement and micromanagement would be beyond the scope of a quarter long undergraduate project so I choose to focus on the micromanagement of small groups of units.
 
-##Deep Reinforcement Learning
+## Deep Reinforcement Learning
+
 Q-Learning is a reinforcement learning technique used to find an optimal action-selection policy. In each step, an agent knows its current state, $s$, and can take an action, $a$. Good performance is awarded with some reward, $r$. We define a Q function as:
 
 \[ Q^{*} \left( s,a \right) =  \mathbb{E}_{s' \sim \varepsilon} \left[ r + \gamma \max_{a'} Q^{*} \left( s', a' \right) \middle| s,a\right] \]
@@ -31,41 +35,48 @@ where $y$ is the expected reward of the state using parameters of our Q from the
 
 DeepMind's deep Q-learning algorithm combines Q-learning as defined above with a deep convolutional neural network and experience replay [[1]](http://arxiv.org/abs/1511.08779). 
 
-#Purpose of the study
+# Purpose of the study
+
 This study is focused on learning about deep reinforcement learning techniques and adapting them to work on multiple agents in complex environments. Specifically, I will study an algorithm such as DeepMind's Deep Q-Learning algorithm and apply it to multiple units in StarCraft:Broodwar small scale combat situations. Using BWAPI, a free and open source C++ framework for interacting with StarCraft: Broodwar, I will set up a combat scenarios (e.g. 3 Marines against 6 Zerglings) on flat terrain and measure the  effectiveness of my learning agents by comparing win rates to the default StarCraft: Broodwar AI. 
 
-#Objectives
+# Objectives
 This independent study is intended to provide Daniel Ong with an opportunity to conduct original research while enrolled as an undergraduate student. At the end of the Spring 2016 quarter, I will have:
-\begin{itemize}
-  \item Acquired knowledge on state of the art deep reinforcement learning techniques
-  \item Produced code to implement deep reinforcement learning for small scale combat in StarCraft: Broodwar
-  \item Produced a professional paper/report on my work
-  \item Become more professional in work and research habits
-\end{itemize}
 
-#Feasibility
+* Acquired knowledge on state of the art deep reinforcement learning techniques
+* Produced code to implement deep reinforcement learning for small scale combat in StarCraft: Broodwar
+* Produced a professional paper/report on my work
+* Become more professional in work and research habits
+
+# Feasibility
+
 StarCraft AI is a difficult topic so I limit the scope of this project to small scale combat micromanagement and concentrate on a single method/algorithm. There are several significant challenges working against my success and advantages working for my success that I have identified. 
 
-##Challenges
-###Lack of Adviser
+## Challenges
+
+### Lack of Adviser
+
 As of the time of writing, I currently do not have a Professor/Adviser for this study. While I am willing to attempt this study on my own, the guidance of an adviser would be invaluable. 
 
-###Hardware Limitations
+### Hardware Limitations
+
 Performing deep reinforcement learning is computationally expensive. Training a single agent in Pong reportedly takes multiple days even with a good GPU \cite{slaterd}. I only have a single Nvidia GTX 750M at my disposable. 
 
-Nvidia has a Hardware Grant program which grants projects a single GPU. Students are not allowed to submit Hardware Grant Requests so I would need to a faculty Professor/Adviser to submit a Hardware Grant Request on my behalf. Obviously, approval is not guaranteed. Waiting multiple days to see results would be a major inconvenience but it would not be insurmountable.
-##Advantages
-###StarCraft Domain Knowledge
+Nvidia has a Hardware Grant program which grants projects a single GPU. Students are not allowed to submit Hardware Grant Requests so I would need to a faculty Professor/Adviser to submit a Hardware Grant Request for the project. Obviously, approval is not guaranteed. Waiting multiple days to see results would be a major inconvenience but it would not be insurmountable.
+
+## Advantages
+
+### StarCraft Domain Knowledge
+
 Having played competitive StarCraft: Broodwar from 2007 through 2010, I have strong domain knowledge which could potentially be incorporated into my algorithm to improve performance and speed up training times. I also have some familiarity with StarCraft map-making and programming in BWAPI, which are necessary skills for this project.
 
-###Machine Learning and AI Domain Knowledge
+### Machine Learning and AI Domain Knowledge
+
 I have some familiarity with both machine learning and AI. Over the summer, I completed the Stanford University Machine Learning course which can be found on Coursera. I also completed COEN 166 Artificial Intelligence last quarter.
 
-###Availability
+### Availability
+
 I already completed all major and core requirements to graduate with the exception of the upper division requirement (9 units short).  I plan on taking COEN 169 Web Information Management and CSCI 183 Data Science this upcoming quarter for a total of 9 units technical units. While I am currently also enrolled in two art courses, I should have a lighter course workload than usual.
 
-#Conclusion
+# Conclusion
+
 By undertaking this project, I will not only enrich my education, but also research the possible applications of state of the art algorithms and possibly create a proof of concept. This may even be an opportunity to publish a paper. I believe the independent study/research project outlined above is challenging but attainable.
-  
-\bibliographystyle{unsrt}
-\bibliography{stuff}
