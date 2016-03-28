@@ -15,6 +15,3 @@ I spend my free time:
 
 ## This website
 This website was created using a modified version of the [Hyde Theme](https://github.com/poole/hyde) for [Poole](http://getpoole.com/) for [Jekkyl](https://jekyllrb.com/) and is hosted on [Github Pages](https://pages.github.com/). 
-
-## Get in touch
-Want to chat? Have a job you think I might be interested in? Check out to [resume](https://drive.google.com/file/d/0B_ene-mM14ODTUZrUVlRVEtFb2s/view) and feel free to email me at <a href="mailto:danielong1@gmail.com" target="_top">danielong1@gmail.com</a>.
