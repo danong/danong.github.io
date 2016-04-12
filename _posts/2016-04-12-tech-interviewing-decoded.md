@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Draft: Tech Interviewing Decoded Summary
+title: Tech Interviewing Decoded Summary (Draft)
 ---
 
 ## Introduction
