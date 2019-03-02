@@ -7,7 +7,8 @@ body {
       color: #ffffff;
       background-color: #212121;
       margin: 0 auto;
-      width: 78ch;
+      width: 75%;
+      max-width: 128ch;
     }
 
 h1 {
@@ -22,6 +23,9 @@ p {
     padding-left: 7ch;
 }
 
+a {
+    color: #ff6e40
+}
 .wideline {
     display: flex;
     justify-content: space-between;
