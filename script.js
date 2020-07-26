@@ -33,8 +33,9 @@ quoteInputElement.addEventListener('input', () => {
 })
 
 function getQuote() {
-  var words = ['teens','suet','outs','nouns','ate','shah','huh','ones','ton','ensue','taunt','noose','hes','hash','seats','souse','hates','shush','oaten','sets','tooth','tees','notes','hos','tutu','thou','tenth','theta','heat','ante','eases','tent','antes','hush','shout','ohs','hat','soot','shahs','test','the','tuna','tun','non','teas','taut','heats','shot','soon','tush','sash','hue','unto','noes','oaths','henna','stats','sots','tots','sheet','tonne','thus','hunts','asses','host','teen','east','sense','anon','has','onus','haunt','tout','sane','suns','autos','stun','tho','anus','tenon','shunt','net','tunas','sheen','sates','shoon','shun','tone','shoos','ten','shoe','uses','stash','teat','neat','shots','totes','anons','shes','shoes']
-  return words.join(' ')
+  // var words = ['teens','suet','outs','nouns','ate','shah','huh','ones','ton','ensue','taunt','noose','hes','hash','seats','souse','hates','shush','oaten','sets','tooth','tees','notes','hos','tutu','thou','tenth','theta','heat','ante','eases','tent','antes','hush','shout','ohs','hat','soot','shahs','test','the','tuna','tun','non','teas','taut','heats','shot','soon','tush','sash','hue','unto','noes','oaths','henna','stats','sots','tots','sheet','tonne','thus','hunts','asses','host','teen','east','sense','anon','has','onus','haunt','tout','sane','suns','autos','stun','tho','anus','tenon','shunt','net','tunas','sheen','sates','shoon','shun','tone','shoos','ten','shoe','uses','stash','teat','neat','shots','totes','anons','shes','shoes']
+  // return words.join(' ')
+  return 'that does seat attend ass dead sends nano none she dean tattoo tests seo seeds nato set donated santa end so too nathan dose east attended dont seats eden ones season tt hosts ent dt ad ana tend assets hats ant hans sans anne annotated nest hottest est das e st es tennessee dh donna ease oe sheets at eh oo ate dana headset dot dates nt nh sheet sd donate estate ed sent node stones don ted seen hand no thats dead ads on tahoe ada the stats dated toe needs nhs these antenna sean notes dad ton shannon'
 }
 
 async function renderNewQuote() {
